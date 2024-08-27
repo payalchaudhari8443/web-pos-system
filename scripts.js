@@ -1,29 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const addSaleButton = document.getElementById('addSaleButton');
-    const generateReportButton = document.getElementById('generateReportButton');
-    const salesReport = document.getElementById('salesReport');
+document.getElementById('addSale').addEventListener('click', function() {
+    const productName = document.getElementById('productName').value;
+    const productPrice = document.getElementById('productPrice').value;
+    
+    if (productName && productPrice) {
+        const salesReport = document.getElementById('salesReport');
+        const listItem = document.createElement('li');
+        listItem.textContent = `Product: ${productName}, Price: ${productPrice}`;
+        salesReport.appendChild(listItem);
 
-    function addSale() {
-        const productName = document.getElementById('productName').value.trim();
-        const price = document.getElementById('price').value.trim();
-
-        if (productName && price) {
-            const sales = JSON.parse(localStorage.getItem('sales')) || [];
-            sales.push({ productName, price });
-            localStorage.setItem('sales', JSON.stringify(sales));
-            document.getElementById('productName').value = '';
-            document.getElementById('price').value = '';
-            alert('Sale added successfully!');
-        } else {
-            alert('Please fill in both fields.');
-        }
+        document.getElementById('productName').value = '';
+        document.getElementById('productPrice').value = '';
+    } else {
+        alert('Please fill in both fields.');
     }
-
-    function generateReport() {
-        const sales = JSON.parse(localStorage.getItem('sales')) || [];
-        salesReport.innerHTML = sales.map(sale => `<li>Product: ${sale.productName}, Price: ${sale.price}</li>`).join('');
-    }
-
-    addSaleButton.addEventListener('click', addSale);
-    generateReportButton.addEventListener('click', generateReport);
 });
