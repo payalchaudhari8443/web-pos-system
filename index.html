@@ -3,30 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Point of Sale System</title>
+    <title>POS System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>Point of Sale System</h1>
     </header>
-    <main>
-        <div class="container">
-            <label for="productName">Product Name:</label>
-            <input type="text" id="productName" placeholder="Enter product name">
-            
-            <label for="price">Price:</label>
-            <input type="number" id="price" placeholder="Enter price">
-
-            <button id="addSaleButton">Add Sale</button>
-            <button id="generateReportButton">Generate Report</button>
-
-            <div id="reportSection">
-                <h2>Sales Report:</h2>
-                <ul id="salesReport"></ul>
-            </div>
+    <div class="container">
+        <h2>Product Entry</h2>
+        <input type="text" id="productName" placeholder="Product Name">
+        <input type="number" id="productPrice" placeholder="Price">
+        <button id="addSale">Add Sale</button>
+        <button id="generateReport">Generate Report</button>
+        <div id="reportSection">
+            <h2>Sales Report</h2>
+            <ul id="salesReport"></ul>
         </div>
-    </main>
-    <script src="scripts.js"></script>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
